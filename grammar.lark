@@ -1,0 +1,63 @@
+?start: program
+
+program: (stmt | _NEWLINE)*
+
+stmt: assignment_stmt
+    | func_def
+    | if_stmt
+    | expr_stmt
+    | return_stmt
+
+assignment_stmt: (NAME | STRING) "=" expr
+func_def: "func" NAME "(" [params] ")" block
+if_stmt: "if" expr block ["else" block]
+return_stmt: "return" expr
+expr_stmt: expr
+
+block: "{" (stmt | _NEWLINE)* "}"
+
+params: NAME ("," NAME)* [","]
+
+?expr: comparison
+
+?comparison: sum (COMP_OP sum)*
+?sum: product (SUM_OP product)*
+?product: atom (MUL_OP atom)*
+
+?atom: literal
+     | NAME             -> var
+     | func_call
+     | "(" expr ")"
+     | atom "." NAME    -> attr_access
+
+func_call: atom "(" [args] ")"
+args: expr ("," expr)* [","]
+
+?literal: NUMBER        -> number
+        | STRING        -> string
+        | "true"        -> true
+        | "false"       -> false
+        | "null"        -> null
+        | object
+        | list
+
+object: "{" [pair ("," pair)* [","]] "}"
+pair: (NAME | STRING) ":" expr
+
+list: "[" [expr ("," expr)* [","]] "]"
+
+COMP_OP: "==" | "!=" | "<=" | ">=" | "<" | ">"
+SUM_OP: "+" | "-"
+MUL_OP: "*" | "/"
+
+%import common.CNAME -> NAME
+%import common.ESCAPED_STRING -> STRING
+%import common.SIGNED_NUMBER -> NUMBER
+%import common.WS
+%import common.NEWLINE -> _NEWLINE
+
+COMMENT: /#[^\n]*/
+
+%ignore WS
+%ignore _NEWLINE
+%ignore COMMENT

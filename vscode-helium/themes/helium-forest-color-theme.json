@@ -1,0 +1,43 @@
+{
+    "name": "Helium Forest",
+    "type": "dark",
+    "colors": {
+        "editor.background": "#0B120B",
+        "editor.foreground": "#F0FDF4",
+        "activityBar.background": "#050805",
+        "sideBar.background": "#070B07",
+        "statusBar.background": "#2D5A27"
+    },
+    "tokenColors": [
+        {
+            "name": "Keywords",
+            "scope": "keyword.control.helium",
+            "settings": { "foreground": "#66DDAA" }
+        },
+        {
+            "name": "Functions",
+            "scope": "entity.name.function.helium",
+            "settings": { "foreground": "#66DDAA" }
+        },
+        {
+            "name": "Strings",
+            "scope": "string.quoted.double.helium",
+            "settings": { "foreground": "#AAFFCC" }
+        },
+        {
+            "name": "Numbers",
+            "scope": "constant.numeric.helium",
+            "settings": { "foreground": "#CCFF00" }
+        },
+        {
+            "name": "Variables",
+            "scope": "variable.name.helium",
+            "settings": { "foreground": "#F0FDF4" }
+        },
+        {
+            "name": "Comments",
+            "scope": "comment.line.number-sign.helium",
+            "settings": { "foreground": "#8FA98F" }
+        }
+    ]
+}

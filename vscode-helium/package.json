@@ -1,0 +1,32 @@
+{
+    "name": "helium-vscode",
+    "displayName": "Helium (.ium) Language Support",
+    "description": "Syntax highlighting and language support for the Helium programming language.",
+    "version": "1.0.0",
+    "publisher": "alanthecoderishere",
+    "engines": {
+        "vscode": "^1.70.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Themes"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "helium",
+            "aliases": ["Helium", "helium"],
+            "extensions": [".ium"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "helium",
+            "scopeName": "source.helium",
+            "path": "./syntaxes/helium.tmLanguage.json"
+        }],
+        "themes": [{
+            "label": "Helium Forest",
+            "uiTheme": "vs-dark",
+            "path": "./themes/helium-forest-color-theme.json"
+        }]
+    }
+}

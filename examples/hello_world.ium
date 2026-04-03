@@ -1,0 +1,19 @@
+# Helium Clean Style Demo
+message = "Welcome to Helium Language!"
+
+config = {
+    version: 1.0,
+    status: "stable",
+    features: ["Clean Style", "No-let declarations", "=", "Minimalist"],
+}
+
+func greet(info) {
+    print(message)
+    print("Version: " + info.version)
+    
+    if info.status == "stable" {
+        print("System is ready.")
+    }
+}
+
+greet(config)

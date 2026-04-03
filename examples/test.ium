@@ -1,0 +1,3 @@
+#Test Helium_Programming_Language
+massage = "Hi this is the first test of Helium programming language"
+print(massage)

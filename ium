@@ -1,0 +1,8 @@
+#!/bin/bash
+# Helium (.ium) Launcher for Linux and macOS
+
+# Get the directory of the script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+# Run the interpreter with Python 3
+python3 "$DIR/helium_interpreter.py" "$@"
